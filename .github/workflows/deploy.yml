@@ -7,15 +7,22 @@ on:
   pull_request:
     branches:
       - main
+  workflow_dispatch:
+  schedule:
+    - cron: '0 */6 * * *'
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
         node-version: [20.x]
+
+    env:
+      SESSION_ID: PRABATH-MD~qN9zADqZ#yf0wtMihiW2SpXfPaWoF-YtHWDOi5fPbFxpuhH1wogg
+      GITHUB_AUTH_TOKEN: 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
+      BOT_NUMBER: 94765684096
 
     steps:
     - name: Checkout repository
